@@ -1,0 +1,13 @@
+blog = 'Klinik' + 'Python'
+print("Hasil gabungan blog:", blog)
+newblog = blog * 5
+print("Hasil pengulangan newblog:", newblog)
+blog *= 4
+print("Hasil pengulangan blog:", blog)
+string = 'Klinik' 'Python'
+print("Hasil gabungan string:", string)
+buah = 'Nanas'
+print("Karakter pertama buah:", buah[0])
+print("Dua karakter pertama buah:", buah[0:2])
+print("Empat karakter pertama buah:", buah[0:4])
+print("Lima karakter pertama buah:", buah[0:5])
