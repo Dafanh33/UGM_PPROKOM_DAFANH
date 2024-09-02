@@ -1,0 +1,35 @@
+#program menghitung nilai siswa
+nama = str(input("Masukkan nama = "))
+nilai = int(input("Masukan nilai = "))
+if (nilai>=70):
+    print("Siswa lulus")
+else:
+    print("Siswa tidak lulus")
+
+nama = str(input("Masukkan nama = "))
+nilai = int(input("Masukan nilai = "))
+if (nilai>=70):
+    print("Siswa lulus")
+else:
+    print("Siswa Tidak lulus")
+
+nama = str(input("Masukkan nama = "))
+nilai = int(input("Masukan nilai = "))
+if (nilai>=70):
+    print("Siswa lulus")
+else:
+    print("Siswa tidak lulus")
+
+nama = str(input("Masukkan nama = "))
+nilai = int(input("Masukan nilai = "))
+if (nilai>=70):
+    print("Siswa lulus")
+else:
+    print("Siswa tidak lulus")
+
+nama = str(input("Masukkan nama = "))
+nilai = int(input("Masukan nilai = "))
+if (nilai>=70):
+    print("Siswa lulus")
+else:
+    print("Siswa tidak lulus")
