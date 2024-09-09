@@ -1,0 +1,11 @@
+#program menampilkan bilangan tak beraturan
+#Menginisialisasikan dua variabel untuk x=(+)1 dan y=(-)10
+
+x=1
+y=10
+
+# Loop X untuk mencetak angka dari 1 sampai 10 dan Y mencetak angka dari 10 ke 1 secara diagonal
+while x <= 10:
+    print(x, y, end=" ")
+    x += 1
+    y -= 1
