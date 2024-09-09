@@ -1,0 +1,21 @@
+# Meminta input saldo awal
+awal = int(input("Masukkan saldo awal: "))
+sisa = awal  #bila tidak ada pengeluaran
+
+while True:
+    # Meminta input pengeluaran
+    pengeluaran = int(input("Masukkan pengeluaran hari ini (-1 untuk keluar): "))
+    
+    # Jika pengeluaran adalah -1, keluar dari loop
+    if pengeluaran == -1:
+        print("Sisa saldo =", sisa)
+        break
+    
+    # Mengurangi saldo dengan pengeluaran
+    sisa -= pengeluaran
+    
+    # Jika saldo tidak cukup
+    if sisa < 0:
+        print("Saldo tidak cukup")
+        print("Sisa saldo =", sisa + pengeluaran)
+        break
