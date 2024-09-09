@@ -1,0 +1,17 @@
+# Meminta jumlah data dari pengguna
+jumlah_data = int(input("Masukkan jumlah data: "))
+
+# Inisialisasi list untuk menyimpan nilai-nilai
+nilai_list = []
+
+# Meminta input nilai sebanyak jumlah data
+for i in range(jumlah_data):
+    nilai = float(input(f"Masukkan nilai ke-{i + 1}: "))
+    nilai_list.append(nilai)
+
+# Menghitung rata-rata
+rata_rata = sum(nilai_list) / jumlah_data
+
+# Menampilkan hasil
+print("\nData yang dimasukkan:", nilai_list)
+print(f"Nilai rata-rata dari {jumlah_data} data adalah: {rata_rata:.2f}")
