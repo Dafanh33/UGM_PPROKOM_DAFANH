@@ -1,0 +1,8 @@
+for var_nilai in range(10):
+    print(f"Perulangan pertama Ke {var_nilai}")
+    var_i = 1
+    while var_i < 3:
+        print(f" Perulangan ke {var_nilai}, {var_i}")
+        var_i += 1
+
+print(f"var_nilai = {var_nilai + 1} = 10. Bernilai False")
