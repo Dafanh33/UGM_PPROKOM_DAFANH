@@ -1,0 +1,5 @@
+for var_nilai in range(10):
+    print(f"Perulangan pertama Ke {var_nilai}")
+    [print(f" Perulangan ke {var_nilai}, {var_i}") for var_i in range(1, 3)]
+
+print(f"var_nilai = {var_nilai + 1} = 10. Bernilai False")
