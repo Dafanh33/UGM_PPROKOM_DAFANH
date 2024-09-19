@@ -1,0 +1,63 @@
+# Mendefinisikan 4 data set yang telah diberikan
+A = {100, 7, 8}
+B = {200, 4, 5}
+C = {300, 2, 3}
+D = {100, 200, 300}
+
+print("Set awal:")
+print("A =", A)
+print("B =", B)
+print("C =", C)
+print("D =", D)
+
+print("\nProses Irisan:")
+
+# soal point a (A∩D)
+print("a. A ∩ D:")
+print("   Elemen di A:", A)
+print("   Elemen di D:", D)
+print("   Elemen yang sama:", end=" ")
+hasil_a = set()
+for elemen in A:
+    if elemen in D:
+        hasil_a.add(elemen)
+        print(elemen, end=" ")
+print("\n   Hasil A ∩ D =", hasil_a)
+
+# soal point b (B∩D)
+print("\nb. B ∩ D:")
+print("   Elemen di B:", B)
+print("   Elemen di D:", D)
+print("   Elemen yang sama:", end=" ")
+hasil_b = set()
+for elemen in B:
+    if elemen in D:
+        hasil_b.add(elemen)
+        print(elemen, end=" ")
+print("\n   Hasil B ∩ D =", hasil_b)
+
+# soal point c (C∩D)
+print("\nc. C ∩ D:")
+print("   Elemen di C:", C)
+print("   Elemen di D:", D)
+print("   Elemen yang sama:", end=" ")
+hasil_c = set()
+for elemen in C:
+    if elemen in D:
+        hasil_c.add(elemen)
+        print(elemen, end=" ")
+print("\n   Hasil C ∩ D =", hasil_c)
+
+# soal point d (A∩B∩C∩D)
+print("\nd. A ∩ B ∩ C ∩ D:")
+print("   Elemen di A:", A)
+print("   Elemen di B:", B)
+print("   Elemen di C:", C)
+print("   Elemen di D:", D)
+print("   Elemen yang sama di semua set:", end=" ")
+hasil_d = set()
+for elemen in A:
+    if elemen in B and elemen in C and elemen in D:
+        hasil_d.add(elemen)
+        print(elemen, end=" ")
+print("\n   Hasil A ∩ B ∩ C ∩ D =", hasil_d)
