@@ -1,4 +1,4 @@
-# Mendefinisikan 4 data set yang telah diberikan
+#Mendefinisikan 4 data set yang telah diberikan
 A = {100, 7, 8}
 B = {200, 4, 5}
 C = {300, 2, 3}
@@ -12,7 +12,7 @@ print("D =", D)
 
 print("\nProses Irisan:")
 
-# soal point a (A∩D)
+#soal point a (A∩D)
 print("a. A ∩ D:")
 print("   Elemen di A:", A)
 print("   Elemen di D:", D)
@@ -24,7 +24,7 @@ for elemen in A:
         print(elemen, end=" ")
 print("\n   Hasil A ∩ D =", hasil_a)
 
-# soal point b (B∩D)
+#soal point b (B∩D)
 print("\nb. B ∩ D:")
 print("   Elemen di B:", B)
 print("   Elemen di D:", D)
@@ -36,7 +36,7 @@ for elemen in B:
         print(elemen, end=" ")
 print("\n   Hasil B ∩ D =", hasil_b)
 
-# soal point c (C∩D)
+#soal point c (C∩D)
 print("\nc. C ∩ D:")
 print("   Elemen di C:", C)
 print("   Elemen di D:", D)
@@ -48,7 +48,7 @@ for elemen in C:
         print(elemen, end=" ")
 print("\n   Hasil C ∩ D =", hasil_c)
 
-# soal point d (A∩B∩C∩D)
+#soal point d (A∩B∩C∩D)
 print("\nd. A ∩ B ∩ C ∩ D:")
 print("   Elemen di A:", A)
 print("   Elemen di B:", B)
