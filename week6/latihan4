@@ -1,0 +1,88 @@
+#Mendefinisikan set-set yang diberikan
+A = {100, 7, 8}
+B = {200, 4, 5}
+C = {300, 2, 3}
+D = {100, 200, 300}
+
+print("Set awal:")
+print("A =", A)
+print("B =", B)
+print("C =", C)
+print("D =", D)
+
+print("\nProses Union:")
+
+#Soal point a(A U B)
+print("a. A U B:")
+print("   Elemen di A:", A)
+print("   Elemen di B:", B)
+print("   Proses penggabungan:")
+hasil_a = set()
+for elemen in A:
+    hasil_a.add(elemen)
+    print(f"      Menambahkan {elemen} dari A")
+for elemen in B:
+    if elemen not in hasil_a:
+        hasil_a.add(elemen)
+        print(f"      Menambahkan {elemen} dari B")
+print("   Hasil A U B =", hasil_a)
+
+#Soal point b(B U C)
+print("\nb. B U C:")
+print("   Elemen di B:", B)
+print("   Elemen di C:", C)
+print("   Proses penggabungan:")
+hasil_b = set()
+for elemen in B:
+    hasil_b.add(elemen)
+    print(f"      Menambahkan {elemen} dari B")
+for elemen in C:
+    if elemen not in hasil_b:
+        hasil_b.add(elemen)
+        print(f"      Menambahkan {elemen} dari C")
+print("   Hasil B U C =", hasil_b)
+
+#Soal point c(B U C U D)
+print("\nc. B U C U D:")
+print("   Elemen di B:", B)
+print("   Elemen di C:", C)
+print("   Elemen di D:", D)
+print("   Proses penggabungan:")
+hasil_c = set()
+for elemen in B:
+    hasil_c.add(elemen)
+    print(f"      Menambahkan {elemen} dari B")
+for elemen in C:
+    if elemen not in hasil_c:
+        hasil_c.add(elemen)
+        print(f"      Menambahkan {elemen} dari C")
+for elemen in D:
+    if elemen not in hasil_c:
+        hasil_c.add(elemen)
+        print(f"      Menambahkan {elemen} dari D")
+print("   Hasil B U C U D =", hasil_c)
+
+#Point d(A U B U C U D)
+print("\nd. A U B U C U D:")
+print("   Elemen di A:", A)
+print("   Elemen di B:", B)
+print("   Elemen di C:", C)
+print("   Elemen di D:", D)
+print("   Proses penggabungan:")
+hasil_d = set()
+for elemen in A:
+    hasil_d.add(elemen)
+    print(f"      Menambahkan {elemen} dari A")
+for elemen in B:
+    if elemen not in hasil_d:
+        hasil_d.add(elemen)
+        print(f"      Menambahkan {elemen} dari B")
+for elemen in C:
+    if elemen not in hasil_d:
+        hasil_d.add(elemen)
+        print(f"      Menambahkan {elemen} dari C")
+for elemen in D:
+    if elemen not in hasil_d:
+        hasil_d.add(elemen)
+        print(f"      Menambahkan {elemen} dari D")
+print("   Hasil A U B U C U D =", hasil_d)
