@@ -1,0 +1,21 @@
+#MenDefinisikan set yan telah di berikan
+A = {'a', 'b', 'c', 'd'}
+B = {'c', 'd', 'e'}
+C = set()
+
+#Fungsi untuk melakukan symmetric difference dan mencetak hasilnya
+def symmetric_difference_and_print(set1, set2, label1, label2):
+    result = set1.symmetric_difference(set2)
+    print(f"{label1} symmetric difference {label2} = {result}")
+
+#Menampilkan hasil symmetric_difference
+print("Set awal:")
+print(f"A = {A}")
+print(f"B = {B}")
+print(f"C = {C}")
+print("\nHasil symmetric difference:")
+
+symmetric_difference_and_print(A, B, "A", "B")
+symmetric_difference_and_print(B, A, "B", "A")
+symmetric_difference_and_print(A, C, "A", "C")
+symmetric_difference_and_print(B, C, "B", "C")
