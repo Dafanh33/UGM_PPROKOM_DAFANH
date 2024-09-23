@@ -1,0 +1,8 @@
+siswa = {
+    "nama": "Budi",
+    "umur": 17,
+    "tinggi": 168.5
+}
+print("Sebelum penambahan:", siswa)
+siswa["prestasi"] = "Juara Olimpiade Matematika"
+print("Setelah penambahan:", siswa)
