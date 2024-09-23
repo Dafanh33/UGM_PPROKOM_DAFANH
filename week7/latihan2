@@ -1,8 +1,8 @@
-siswa = {
-    "nama": "Budi",
-    "umur": 17,
-    "tinggi": 168.5
+student = {
+ "nama" : "faqih",
+ "umur" : 26,
+ "tinggi" : 177.6
 }
-print("Sebelum penambahan:", siswa)
-siswa["prestasi"] = "Juara Olimpiade Matematika"
-print("Setelah penambahan:", siswa)
+print(student)
+student["hobi"] = "coding"
+print(student)
