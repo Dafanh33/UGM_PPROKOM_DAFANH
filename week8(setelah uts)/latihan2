@@ -1,0 +1,40 @@
+# Program penjumlahan dan rata-rata nilai dengan menu pilihan
+
+# a. Mendeklarasikan array untuk menyimpan 5 angka
+nilai = []
+
+# b. Meminta pengguna memasukkan 5 angka
+for i in range(5):
+    while True:
+        try:
+            angka = float(input(f"Masukkan angka ke-{i+1}: "))
+            nilai.append(angka)
+            break
+        except ValueError:
+            print("Input tidak valid. Mohon masukkan angka desimal.")
+    
+    # c. Mencetak list setelah setiap angka dimasukkan
+    print(f"List saat ini: {nilai}")
+
+# d. Menghitung jumlah total data
+total = sum(nilai)
+
+# Menu pilihan
+while True:
+    print("\nMenu:")
+    print("1. Tampilkan jumlah dari semua angka")
+    print("2. Tampilkan rata-rata dari semua angka")
+    print("3. Keluar")
+    
+    pilihan = input("Masukkan pilihan Anda (1/2/3): ")
+    
+    if pilihan == '1':
+        print(f"Jumlah total: {total}")
+    elif pilihan == '2':
+        rata_rata = total / len(nilai)
+        print(f"Rata-rata: {rata_rata}")
+    elif pilihan == '3':
+        print("Terima kasih telah menggunakan program ini.")
+        break
+    else:
+        print("Pilihan tidak valid. Silakan pilih 1, 2, atau 3.")
