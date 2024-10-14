@@ -1,0 +1,10 @@
+numbers = [1, 5, 4, 6, 7, 12, 45, 9, 99, 55, 100, 88, 75, 60]
+
+odd = [num for num in numbers if num % 2 != 0]
+even = [num for num in numbers if num % 2 == 0]
+
+print(f"Daftar angka: {numbers}")
+print(f"Angka ganjil: {odd}")
+print(f"Jumlah angka ganjil: {sum(odd)}")
+print(f"Angka genap: {even}")
+print(f"Jumlah angka genap: {sum(even)}")
