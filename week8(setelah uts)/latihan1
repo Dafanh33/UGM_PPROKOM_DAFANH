@@ -6,7 +6,7 @@ while True:
     print("2. Tampilkan semua data nilai mahasiswa")
     print("3. Tampilkan data nilai mahasiswa yang memiliki nilai tertinggi")
     print("4. Keluar")
-    pilihan = int(input("Masukkan nilai mahasiswa: "))
+    pilihan = int(input("Masukkan pilihan yang anda inginkan: "))
     
     if pilihan == 1:
         nilai = int(input("Masukkan nilai mahasiswa: "))
