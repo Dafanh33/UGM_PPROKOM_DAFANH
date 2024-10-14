@@ -1,0 +1,19 @@
+# Meminta jumlah elemen
+n = int(input("Masukkan jumlah elemen dalam array: "))
+
+# Membuat array dengan bilangan 1 hingga n
+arr = list(range(1, n+1))
+
+# Menampilkan array
+print(f"Array: {arr}")
+
+# Meminta bilangan untuk mencari kelipatan
+pembagi = int(input("Masukkan bilangan untuk mencari kelipatan: "))
+
+# Mencari dan menampilkan kelipatan
+kelipatan = [num for num in arr if num % pembagi == 0]
+
+if kelipatan:
+    print(f"Kelipatan dari {pembagi}: {kelipatan}")
+else:
+    print(f"Tidak ada kelipatan dari {pembagi} dalam array.")
