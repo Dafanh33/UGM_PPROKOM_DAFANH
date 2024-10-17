@@ -1,0 +1,207 @@
+import random
+import interface.print as interface_print
+import interface.format as interface_format
+import time
+
+"""
+Begin Algorithm
+"""
+total_distance_m: float = 0.0
+carbon_emissions_total_kg: float = 0.0
+affirmative_inputs = ['y', 'Y', '']
+vehicles_emission_gram_km = {
+    1: {
+        "name": "Mobil (Bensin)",
+        "emission": 192.0,
+    },
+    2: {
+        "name": "Mobil (Diesel)",
+        "emission": 171.0,
+    },
+    3: {
+        "name": "Pesawat terbang",
+        "emission": 156.0,
+    },
+    4: {
+        "name": "Bus",
+        "emission": 105.0,
+    },
+    5: {
+        "name": "Sepeda motor",
+        "emission": 103.0,
+    },
+    6: {
+        "name": "Kendaraan listrik",
+        "emission": 56.0,
+    },
+    7: {
+        "name": "Kereta",
+        "emission": 41.0,
+    },
+    8: {
+        "name": "Kapal laut",
+        "emission": 41.0,
+    },
+    9: {
+        "name": "Truck",
+        "emission": 41.0,
+    },
+    10: {
+            "name": "Helikopter",
+            "emission": 41.0,
+        }
+}
+trees_carbon_absorption_gram_hr = {
+    1: {
+        "name": "Mahoni",
+        "ab_cap": 60.7,
+    },
+    2: {
+        "name": "Trambesi",
+        "ab_cap": 38.0,
+    },
+    3: {
+        "name": "Angsana",
+        "ab_cap": 45.7,
+    },
+    4: {
+        "name": "Glodokan Tiang",
+        "ab_cap": 34.1,
+    },
+}
+
+"""
+We wrap the entire code in a try-except block for safely handles any exceptions
+that may occurs.
+"""
+try:
+    """
+    Then we wrap the code inside a infinite while loop to allow the users to calculate as much as they want
+    until they decided not to.
+    """
+    while True:
+        """
+        First we print the program's header.
+        """
+        interface_print.header(True)
+        print(interface_format.general("Hitung emisi karbonmu!"))
+
+        """
+        Then we delay printing to the terminal in a controlled manner.
+        """
+        time.sleep(1)
+        interface_print.separator()
+
+        """
+        We inform the user about their total carbon emissions so far.
+        """
+        interface_print.info("Total emisi karbon kamu: \33[34m%s kg\33[0m" % carbon_emissions_total_kg)
+        interface_print.separator()
+
+        """
+        Again we use sleep to delay the printing to the terminal in a controlled manner. 
+        """
+        time.sleep(.5)
+
+        """
+        Then we show to the user a list of different type of vehicles and their corresponding carbon
+        emissions for a kilo meter travel distance. After that we asked the user to chose their
+        vehicle.
+        """
+        interface_print.info("Pertama pilih jenis kendaraanmu:")
+        for key, vehicle in vehicles_emission_gram_km.items():
+            print(interface_format.general(
+                "[%s]. \33[34m%s\33[0m (%sgr/km)" % (key, vehicle["name"], vehicle["emission"]),
+                level=2))
+
+        interface_print.separator()
+        vehicle_of_chosing: int = int(
+            input(interface_format.general(
+                "Kendaraan mana yang kamu gunakan? (1 - %s): " % len(vehicles_emission_gram_km))))
+
+        """
+        Using while loop, we validate the user's input to make sure the selected value is a valid option. 
+        """
+        while vehicle_of_chosing not in vehicles_emission_gram_km.keys():
+            interface_print.separator()
+            interface_print.warning("Masukin pilihan yang valid ya...")
+            vehicle_of_chosing = int(
+                input(interface_format.general(
+                    "Kendaraan mana yang kamu gunakan?  (1 - %s): " % len(vehicles_emission_gram_km))))
+
+        """
+        If the selection is valid, then we proceed to ask the user for distance traveled by using the selected vehicle.
+        We ask distance in meter for now, but we'll convert it to kilo meter later on.
+        """
+        interface_print.separator()
+        interface_print.info("Kamu memilih \033[4m%s\033[0m." % vehicles_emission_gram_km[vehicle_of_chosing]["name"])
+        interface_print.separator()
+        vehicle_distance: float = round(float(
+            input(interface_format.general(
+                "Lalu, seberapa jauh kamu mengendarainnya? (dalam meter. contoh: 12500 untuk 12.5km): "))), 2)
+        total_distance_m += vehicle_distance
+
+        """
+        We convert the given distance in meters by the user to kilo meters and calculate the carbon emission created by
+        multiplying the vehicle's emission per kilometer with the distance which already converted to kilo meters in
+        the previous step. Then we add the calculated emission value to the carbon_emissions_total_kg variable 
+        for temporary storage.
+
+        We also uses the round function to round up the decimal value to make it more readable when there
+        is a significant amount of numbers after the decimal point.
+        """
+        carbon_emission_kg: float = round(
+            (vehicles_emission_gram_km[vehicle_of_chosing]["emission"] * (vehicle_distance / 1000) / 1000), 2)
+        carbon_emissions_total_kg += carbon_emission_kg
+
+        """
+        Then we describes to the user how much carbon emissions they had created by traveling that 
+        distance board the selected vehicle in a descriptive and easy-to-understand ways.
+        """
+        interface_print.separator()
+        time.sleep(1)
+        interface_print.success(
+            "Kamu telah berkendara sejauh %skm mengendarai %s (%sgr/km), jadi kamu telah menciptakan emisi karbon sebanyak \033[34m%skg\033[0m." % (
+                round(vehicle_distance / 1000, 2), vehicles_emission_gram_km[vehicle_of_chosing]["name"],
+                vehicles_emission_gram_km[vehicle_of_chosing]["emission"], carbon_emission_kg))
+        interface_print.separator()
+        time.sleep(1)
+        interface_print.info("Total emisi karbon kamu sekarang: \33[34m%s kg\33[0m" % carbon_emissions_total_kg)
+        interface_print.separator()
+
+        """
+        Last we asked the user if they want to perform another calculations. If so the program is repeated, else
+        we escape the infinite loop by using break statement. 
+        """
+        if input(interface_format.general("Mau menghitung lagi? [Y/t]: ")) not in affirmative_inputs: break
+
+    """
+    After the users is finish with their carbon emissions counting, we'll present to them, in a simple, outline-descriptive,
+    easy-to-understand ways, about their total carbon emissions and a time taken of a specific kind of tree to
+    absorbs the produced emissions.
+    """
+    tree_for_comparison = random.choice(list(trees_carbon_absorption_gram_hr.values()))
+    time_needed_for_tree_to_neutralize_hr: float = round(
+        carbon_emissions_total_kg * 100 / tree_for_comparison["emission"], 2)
+
+    interface_print.separator()
+    interface_print.info(
+        "Menurut data yang kamu berikan, kamu telah menyumbang emisi karbon sebanyak \033[4m\33[34m%skg\033[0m." % carbon_emissions_total_kg)
+    time.sleep(1)
+    interface_print.info(
+        "Diperlukan selama \033[4m\33[34m%s jam\033[0m bagi sebatang pohon \033[4m\33[34m%s\033[0m untuk menetralisir jumlah emisi karbon tersebut." % (
+        time_needed_for_tree_to_neutralize_hr, tree_for_comparison["name"]))
+except KeyboardInterrupt:
+    """
+    We use this KeyboardInterrupt exception to safely handle the termination of the running program in a 
+    safe and controlled manner without raising risks of crashing the program or the
+    computational device itself.
+    """
+    interface_print.header(True)
+    interface_print.warning("Kamu sepertinya menekan kombinasi tombol Control + C.")
+    interface_print.warning("Program telah dihentikan dengan aman.")
+except Exception as e:
+    """
+    We also safely handle any exceptions that may occur and provides the detail to the user.
+    """
+    interface_print.failed("Sebuah kesalahan telah terjadi! Detail: ", str(e))
