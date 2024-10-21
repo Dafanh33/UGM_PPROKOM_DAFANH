@@ -1,0 +1,12 @@
+# Membuat array 2D 4x2
+array_2d = [[10 + i + j*2 for j in range(2)] for i in range(4)]
+
+# Menampilkan seluruh array
+print("Array 2D 4x2:")
+for row in array_2d:
+    print(row)
+
+# Menampilkan kolom pertama
+print("\nElemen pada kolom pertama:")
+for row in array_2d:
+    print(row[0])
