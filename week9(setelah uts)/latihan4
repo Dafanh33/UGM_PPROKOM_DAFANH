@@ -1,0 +1,26 @@
+# Array multidimensi
+arr = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+# Inisialisasi penghitung
+even_count = 0
+odd_count = 0
+
+# Menghitung elemen genap dan ganjil
+for row in arr:
+    for elem in row:
+        if elem % 2 == 0:
+            even_count += 1
+        else:
+            odd_count += 1
+
+# Menampilkan hasil
+print("Array multidimensi:")
+for row in arr:
+    print(row)
+
+print(f"\nJumlah elemen genap: {even_count}")
+print(f"Jumlah elemen ganjil: {odd_count}")
