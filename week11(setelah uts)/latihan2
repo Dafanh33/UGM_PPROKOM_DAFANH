@@ -1,88 +1,56 @@
-# geometry.py
-class ShapeCalculator:
-    @staticmethod
-    def hitung_persegi_panjang(panjang, lebar):
-        return panjang * lebar
-    
-    @staticmethod
-    def hitung_lingkaran(radius):
-        return 3.14 * (radius ** 2)
-    
-    @staticmethod
-    def hitung_segitiga(alas, tinggi):
-        return (alas * tinggi) / 2
+# Nama  : Dafa Novran Hasjrullah 
+# Nim   : 24/541835/SV/24961
+# Kelas : TRI B1
 
-# main.py
-from geometry import ShapeCalculator
-
-def tampilkan_menu():
-    """Menampilkan menu utama"""
+def menu():
     print("\nPilih Bentuk 2D")
     print("1. Persegi Panjang")
     print("2. Lingkaran")
-    print("3. Segitiga")
+    print("3. Segitiga") 
     print("4. Keluar")
 
-def input_lanjut():
-    """Meminta input untuk melanjutkan program"""
-    while True:
-        pilihan = input("\nCoba lagi [Y/N]? ").upper()
-        if pilihan in ['Y', 'N']:
-            return pilihan == 'Y'
-
-def hitung_persegi_panjang():
+def persegi():
     print("\nMenghitung Luas Persegi Panjang")
-    try:
-        p = float(input("Masukkan Panjang : "))
-        l = float(input("Masukkan Lebar : "))
-        luas = ShapeCalculator.hitung_persegi_panjang(p, l)
-        print(f"Luas Persegi Panjang adalah {luas}")
-    except ValueError:
-        print("Error: Masukkan harus berupa angka")
+    p = float(input("Masukkan Panjang : "))
+    l = float(input("Masukkan Lebar : "))
+    luas = p * l
+    print(f"Luas Persegi Panjang adalah {luas}")
 
-def hitung_lingkaran():
+def lingkaran():
     print("\nMenghitung Luas Lingkaran")
-    try:
-        r = float(input("Masukkan Jari-Jari : "))
-        luas = ShapeCalculator.hitung_lingkaran(r)
-        print(f"Luas Lingkaran adalah {luas}")
-    except ValueError:
-        print("Error: Masukkan harus berupa angka")
+    r = float(input("Masukkan Jari-Jari : "))
+    luas = 3.14 * (r**2)
+    print(f"Luas Lingkaran adalah {luas}")
 
-def hitung_segitiga():
+def segitiga():
     print("\nMenghitung Luas Segitiga")
-    try:
-        a = float(input("Masukkan Alas : "))
-        t = float(input("Masukkan Tinggi : "))
-        luas = ShapeCalculator.hitung_segitiga(a, t)
-        print(f"Luas Segitiga adalah {luas}")
-    except ValueError:
-        print("Error: Masukkan harus berupa angka")
+    a = float(input("Masukkan Alas : "))
+    t = float(input("Masukkan Tinggi : "))
+    luas = (a * t) / 2
+    print(f"Luas Segitiga adalah {luas}")
 
 def main():
     while True:
-        tampilkan_menu()
-        try:
-            pilihan = input("\nPilih menu (1-4): ")
+        menu()
+        pilihan = input("\nMasukkan pilihan (1-4): ")
+        
+        if pilihan == '1':
+            persegi()
+        elif pilihan == '2':
+            lingkaran()
+        elif pilihan == '3':
+            segitiga()
+        elif pilihan == '4':
+            print("\nTerima kasih telah menggunakan program ini!")
+            break
+        else:
+            print("\nPilihan tidak valid!")
+            continue
             
-            if pilihan == '1':
-                hitung_persegi_panjang()
-            elif pilihan == '2':
-                hitung_lingkaran()
-            elif pilihan == '3':
-                hitung_segitiga()
-            elif pilihan == '4':
-                print("Terima kasih telah menggunakan program ini!")
-                break
-            else:
-                print("Pilihan tidak valid!")
-                
-            if not input_lanjut():
-                print("Terima kasih telah menggunakan program ini!")
-                break
-                
-        except Exception as e:
-            print(f"Terjadi kesalahan: {e}")
+        ulang = input("\nCoba lagi [Y/N]? ").upper()
+        if ulang != 'Y':
+            print("\nTerima kasih telah menggunakan program ini!")
+            break
 
 if __name__ == "__main__":
     main()
