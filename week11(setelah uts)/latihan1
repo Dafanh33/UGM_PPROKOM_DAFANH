@@ -1,0 +1,81 @@
+# modul: quadratic.py
+import math
+
+def hitung_diskriminan(a, b, c):
+    """
+    Menghitung nilai diskriminan dari persamaan kuadrat
+    ax² + bx + c = 0
+    Diskriminan = b² - 4ac
+    """
+    return b**2 - 4*a*c
+
+def cek_jenis_akar(diskriminan):
+    """
+    Memeriksa jenis akar berdasarkan nilai diskriminan
+    diskriminan > 0: dua akar real berbeda
+    diskriminan = 0: dua akar real kembar
+    diskriminan < 0: dua akar kompleks
+    """
+    if diskriminan > 0:
+        return "Memiliki dua akar real berbeda"
+    elif diskriminan == 0:
+        return "Memiliki dua akar real kembar"
+    else:
+        return "Memiliki dua akar kompleks"
+
+def hitung_akar_persamaan(a, b, diskriminan):
+    """
+    Menghitung akar-akar persamaan kuadrat
+    x1 = (-b + √d) / 2a
+    x2 = (-b - √d) / 2a
+    """
+    if diskriminan >= 0:
+        x1 = (-b + math.sqrt(diskriminan)) / (2*a)
+        x2 = (-b - math.sqrt(diskriminan)) / (2*a)
+        return x1, x2
+    else:
+        # Untuk akar kompleks
+        real = -b / (2*a)
+        imag = math.sqrt(abs(diskriminan)) / (2*a)
+        return f"{real:g} + {imag:g}i", f"{real:g} - {imag:g}i"
+
+# modul: main.py
+def main():
+    print("Program Persamaan Kuadrat")
+    print("Bentuk umum: ax² + bx + c = 0")
+    print("-" * 40)
+    
+    try:
+        # Input koefisien
+        a = float(input('Masukkan koefisien a: '))
+        if a == 0:
+            raise ValueError("Koefisien a tidak boleh 0 karena bukan persamaan kuadrat!")
+            
+        b = float(input('Masukkan koefisien b: '))
+        c = float(input('Masukkan koefisien c: '))
+        
+        # Proses perhitungan
+        print("\nProses penyelesaian:")
+        print(f"Persamaan: {a:g}x² + {b:g}x + {c:g} = 0")
+        
+        # Hitung diskriminan
+        d = hitung_diskriminan(a, b, c)
+        print(f"Diskriminan = {d:g}")
+        
+        # Cek jenis akar
+        jenis = cek_jenis_akar(d)
+        print(f"Jenis akar: {jenis}")
+        
+        # Hitung akar-akar
+        x1, x2 = hitung_akar_persamaan(a, b, d)
+        print("\nAkar-akar persamaan:")
+        print(f"x₁ = {x1}")
+        print(f"x₂ = {x2}")
+        
+    except ValueError as e:
+        print(f"\nError: {e}")
+    except Exception as e:
+        print(f"\nTerjadi kesalahan: {e}")
+
+if __name__ == "__main__":
+    main()
