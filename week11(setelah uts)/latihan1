@@ -1,4 +1,8 @@
-# modul: quadratic.py
+# Nama  : Dafa Novran Hasjrullah 
+# Nim   : 24/541835/SV/24961
+# Kelas : TRI B1
+# import module matematika math
+
 import math
 
 def hitung_diskriminan(a, b, c):
